@@ -136,11 +136,12 @@ while True:
     else:
 
         # Move the Ball
-        if ballPos[1] >= 500 or ballPos[1] <= 10:
-            speedY = -speedY
+        if len(hands) == 2:
+            if ballPos[1] >= 500 or ballPos[1] <= 10:
+                speedY = -speedY
 
-        ballPos[0] += speedX
-        ballPos[1] += speedY
+            ballPos[0] += speedX
+            ballPos[1] += speedY
 
         # Draw the ball
         img = cvzone.overlayPNG(img, imgBall, ballPos)
