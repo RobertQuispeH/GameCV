@@ -31,6 +31,7 @@ speedX = 15
 speedY = 15
 gameOver = False
 score = [0, 0]
+incFactor = 1.2
 
 gameStart = True
 solo = True
@@ -59,7 +60,7 @@ while True:
                 if hand["type"] == "Left":
                     img = cvzone.overlayPNG(img, imgBat1, (59, int(y1)))
                     if 59 < ballPos[0] < 59 + w1 and y1 < ballPos[1] < y1 + h1:
-                        speedX = -speedX
+                        speedX = int(-speedX*incFactor)
                         ballPos[0] += 30
                         score[0] += 1
 
@@ -74,20 +75,20 @@ while True:
                         # speedY = -abs(speedY) * 1.1
                         # ballPos[1] -= 15
                         # speedY = -speedY
-                        speedX = -speedX
+                        speedX = int(-speedX*incFactor)
                         ballPos[0] -= 30
                         score[1] += 1
             else:
                 if hand["type"] == "Right":
                     img = cvzone.overlayPNG(img, imgBat1, (59, int(y1)))
                     if 59 < ballPos[0] < 59 + w1 and y1 < ballPos[1] < y1 + h1:
-                        speedX = -speedX
+                        speedX = int(-speedX*incFactor)
                         ballPos[0] += 30
 
                 if hand["type"] == "Left":
                     img = cvzone.overlayPNG(img, imgBat2, (1195, int(y1)))
                     if 1195 - 50 < ballPos[0] < 1195 and y1 < ballPos[1] < y1 + h1:
-                        speedX = -speedX
+                        speedX = int(-speedX*incFactor)
                         ballPos[0] -= 30
 
     # Game Over
