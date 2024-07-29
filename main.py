@@ -26,7 +26,8 @@ capTwoPlayersHover = cv2.VideoCapture("Resources/TwoPlayersHover.gif")
 detector = HandDetector(detectionCon=0.8, maxHands=2)
 
 # Variables
-ballPos = [100, 100]
+initialPos = [600, 250]
+ballPos = initialPos.copy()
 speedX = 15
 speedY = 15
 gameOver = False
@@ -101,7 +102,7 @@ while True:
         elif ballPos[0] > 1200:
             score[0] += 1
         if ballPos[0] < 40 or ballPos[0] > 1200:
-            ballPos = [100, 100]
+            ballPos = initialPos.copy()
             speedX = 15
             speedY = 15
         if max(score) == 5:
@@ -172,7 +173,7 @@ while True:
 
     key = cv2.waitKey(1)
     if key == ord("r"):
-        ballPos = [100, 100]
+        ballPos = initialPos.copy()
         speedX = 15
         speedY = 15
         gameOver = False
