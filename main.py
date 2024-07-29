@@ -33,6 +33,7 @@ speedY = 15
 gameOver = False
 score = [0, 0]
 incFactor = 1.2
+direction = 1
 
 gameStart = True
 solo = True
@@ -103,7 +104,7 @@ while True:
             score[0] += 1
         if ballPos[0] < 40 or ballPos[0] > 1200:
             ballPos = initialPos.copy()
-            speedX = 15
+            speedX = int(15*speedX/abs(speedX))
             speedY = 15
         if max(score) == 5:
             gameOver = True
